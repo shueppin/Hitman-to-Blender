@@ -1,2 +1,19 @@
 # Hitman-to-Blender
 A pipeline to allow Hitman Maps to be exported to Blender including their texture
+
+## Usage
+1. Download the CLI from [RPKG-Tool](https://github.com/glacier-modding/RPKG-Tool)
+2. Find the hash for the map you want to export in [this list](https://github.com/shueppin/Hitman-to-Blender/blob/main/map_hashes.md)
+3. Run the RPKG CLI from the CMD for the map you want to export. Replace `$RUNTIME_FOLDER$` with the folder where your Hitman Runtime is stored (for example inside the Steam or EpicGames folder). Replace `$HASH$` with the hash of the map. Replace `$OUTPUT_DIR$` with the directory where you want the files to be stored.
+```cmd
+rpkg-cli.exe -export_map_textured "$RUNTIME_FOLDER$" -filter "$HASH$" -output_path "$OUTPUT_DIR$" -map_filters boxes=false,spheres=false,visible=false
+```
+4. Download [godot_to_blender.py](https://github.com/shueppin/Hitman-to-Blender/blob/main/godot_to_blender.py) to be able to open the exported files with Blender and not just Godot
+5. Run the conversion script from the CMD. Replace `$BLENDER$` with the path of your Blender executable (like `C:\Program Files\Blender Foundation\Blender x.x\blender.exe`). Replace `$INPUT_DIR$` with the directory that was created in the `$OUTPUT_DIR$` from the command before. Replace `$OUTPUT_BLEND$` with the output file for blender (this should have the extension `.blend`).
+```cmd
+"$BLENDER$" --python godot_to_blender.py -- --project "$INPUT_DIR$" --save "$OUTPUT_BLEND$"
+```
+
+## Notice
+These Maps are property of [IO Interactive](ioi.dk). Respect this and do not publish them in any way shape or form.  
+This project is purely for research purposes for private use
