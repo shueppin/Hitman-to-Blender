@@ -1,5 +1,6 @@
 # Hitman-to-Blender
-A pipeline to allow Hitman Maps to be exported to Blender including their texture
+A pipeline to allow Hitman maps to be exported to Blender including their texture
+
 
 ## Usage
 1. Download the CLI from [RPKG-Tool](https://github.com/glacier-modding/RPKG-Tool)
@@ -14,6 +15,13 @@ rpkg-cli.exe -export_map_textured "$RUNTIME_FOLDER$" -filter "$HASH$" -output_pa
 "$BLENDER$" --python godot_to_blender.py -- --project "$INPUT_DIR$" --save "$OUTPUT_BLEND$"
 ```
 
+
+## Future plans
+- Transparent textures are not rendered correctly. The goal is to fix this. This probably means making changes to RPKG-Tool.
+- It would be nice to have an easy interface for the whole finished pipeline.
+
+
 ## Notice
-These Maps are property of [IO Interactive](ioi.dk). Respect this and do not publish them in any way shape or form.  
-This project is purely for research purposes for private use
+This project is purely for research purposes for private use.  
+DO NOT PUBLISH THE MAPS since they are property of [IO Interactive](ioi.dk). 
+
